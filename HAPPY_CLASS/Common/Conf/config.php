@@ -16,7 +16,7 @@ return array(
     'DB_HOST' => 'localhost',
     'DB_NAME' => 'happy_class',
     'DB_USER' => 'root',
-    'DB_PWD' => '336258',
+    'DB_PWD' => 'root',
     'DB_PORT' => '3306',
     'DB_PREFIX' => 'tp_',
     'DB_CHARSET' => 'UTF8',

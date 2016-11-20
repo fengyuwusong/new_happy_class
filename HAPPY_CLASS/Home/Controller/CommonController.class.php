@@ -36,47 +36,6 @@ class CommonController extends Controller{
         $name=$class->getClassName($class_id);
         return $name['name'];
     }
-    // 设置验证码
-    public function set_verify()
-    {
-        ob_clean();
-        $config = array(
-            'fontSize' => 30,    // 验证码字体大小
-            'length' => 4,     // 验证码位数
-            'useNoise' => false, // 关闭验证码杂点
-        );
-        $Verify = new \Think\Verify($config);
-        $Verify->entry();
-    }
-
-    // 校检验证码           code验证码
-    // 正确true 错误false
-    public function check_verify()
-    {
-        $code=I('post.code');
-        if($code==''){
-            $res=array(
-                    'Status'=>1,
-                    'Mes'=>'参数不能为空',
-                );
-            $this->ajaxReturn($res);
-        }
-        $verify = new \Think\Verify();
-        if ($verify->check($code)) {
-            $res=array(
-                    'Status'=>200,
-                    'Mes'=>'验证成功！',
-                );
-            $this->ajaxReturn($res);
-        } else {
-            $res=array(
-                    'Status'=>0,
-                    'Mes'=>'验证失败！',
-                );
-            $this->ajaxReturn($res);
-        }
-    }
-
     //生成验证码
     public function setGeet()
     {
@@ -96,6 +55,7 @@ class CommonController extends Controller{
     //验证
     public function checkGeet()
     {
+        $id=intval($_POST['id']);
         session_start();
         if ($_POST['type'] == 'pc') {
             $GtSdk = new \Org\Util\Geetestlib(C('CAPTCHA_ID'), C('PRIVATE_KEY'));
@@ -107,12 +67,31 @@ class CommonController extends Controller{
         if ($_SESSION['gtserver'] == 1) {   //服务器正常
             $result = $GtSdk->success_validate($_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode'], $user_id);
             if ($result) {
+                $class = new \Home\Model\ClassModel();
+                $people = new \Home\Model\peopleModel();
+                $back = new \Home\Model\backModel();
+                $value = cookie('vote');
+                if($people->checkip(get_client_ip())!=1||$value!='yes'){
+                    $class->addnum($id);
+                    $people->addpeople($id);
+                    $back->judge($id);
+                    cookie('vote','yes',36000000);
+                }
                 echo '{"status":"success"}';
             } else {
                 echo '{"status":"fail"}';
             }
         } else {  //服务器宕机,走failback模式
             if ($GtSdk->fail_validate($_POST['geetest_challenge'], $_POST['geetest_validate'], $_POST['geetest_seccode'])) {
+                $class = new \Home\Model\ClassModel();
+                $people = new \Home\Model\peopleModel();
+                $back = new \Home\Model\backModel();
+                if($people->checkip(get_client_ip())!=1||$value!='yes'){
+                    $class->addnum($id);
+                    $people->addpeople($id);
+                    $back->judge($id);
+                    cookie('vote','yes',36000000);
+                }
                 echo '{"status":"success"}';
             } else {
                 echo '{"status":"fail"}';

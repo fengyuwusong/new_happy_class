@@ -4,78 +4,46 @@
 	<title>demo</title>
 	<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
 	<script type="text/javascript">
-	// $(function(){
-	// 	$('#show').click(function(){
-	// 		$mess=$('#mess');
-	// 		$mess.css('display','none');
-	// 		$.ajax({ 
-	//             type: "POST",     
-	//             url: "__URL__/getnum",
-	//             data: {
-	//                 id: $('#content').val(), 
-	//             },
-	//             dataType: "text",
-	//             success: function(json) {
-	// 				$mess.slideDown(300,function(){
-	// 					$mess.css('display','block');  
-	// 				}).html("现在票数为："+json);  
-	// 			},
-	//             error: function(jqXHR){     
-	//                alert("发生错误：" + jqXHR.status);  
-	//             },     
-	//         });		
-	// 	})
-	// 	$('#down').click(function(){
-	// 		if(confirm('确定进行减'+$('#num').val()+'票？')){
-	// 			$mess=$('#mess');
-	// 			$mess.css('display','none');
-	// 			$.ajax({ 
-	// 	            type: "POST",     
-	// 	            url: "__URL__/change",
-	// 	            data: {
-	// 	                id: $('#content').val(),
-	// 	                num:$('#num').val(), 
-	// 	            },
-	// 	            dataType: "json",
-	// 	            success: function(json) {
-	// 					$mess.slideDown(300,function(){
-	// 						$mess.css('display','block');  
-	// 					}).html(json);  
-	// 				},
-	// 	            error: function(jqXHR){     
-	// 	               alert("发生错误：" + jqXHR.status);  
-	// 	            },     
-	// 	        });	
-	// 	     }	
-	// 	})
-	// 	$('#source').click(function(){
-	// 		$mess=$('#mess');
-	// 		$mess.css('display','none');
-	// 		$.ajax({ 
-	//             type: "POST",     
-	//             url: "__URL__/showsource",
-	//             data: {
-	//                 id: $('#content').val(), 
-	//             },
-	//             dataType: "text",
-	//             success: function(json) {
-	// 				$mess.slideDown(300,function(){
-	// 					$mess.css('display','block');  
-	// 				}).html("原始票数为："+json);  
-	// 			},
-	//             error: function(jqXHR){     
-	//                alert("发生错误：" + jqXHR.status);  
-	//             },     
-	//         });		
-	// 	}) 
-	// })
+	$(function(){
+		$('#sure').click(function(){
+			var data=$('#date').val();
+			window.location.href="http://127.0.0.1:8080/new_happy_class/index.php/Home/Yxhoutai/alldata.html?date="+data; 
+		})
+	})
 	</script>
 </head>
 <body>
-	<img src="showdata?date=2016-11-16&id=2">
+	<h2>点击后跳转到对应天数的一天数据查看</h2>
+	<label>日期</label>
+	<input type="date" id='date'>
+	<input type="submit" id='sure'>
 	<br>
-	<img src="showdata?date=2016-11-16&id=3">
 	<br>
-	<img src="showdata?date=2016-11-16&id=4">
+	<h3>15电气三班</h3>
+	<img src="showday?date={$Think.get.date}&id=1">
+	<br>
+	<h3>16机电二班</h3>
+	<img src="showday?date={$Think.get.date}&id=2">
+	<br>
+	<h3>15英语三班</h3>
+	<img src="showday?date={$Think.get.date}&id=3">
+	<br>
+	<h3>15人力一班</h3>
+	<img src="showday?date={$Think.get.date}&id=4">
+	<br>
+	<h3>15会计三班</h3>
+	<img src="showday?date={$Think.get.date}&id=5">
+	<br>
+	<h3>14金融六班</h3>
+	<img src="showday?date={$Think.get.date}&id=6">
+	<br>
+	<h3>14车辆三班</h3>
+	<img src="showday?date={$Think.get.date}&id=7">
+	<br>
+	<h3>15国贸三班</h3>
+	<img src="showday?date={$Think.get.date}&id=8">
+	<br>
+	<h3>15建筑三班</h3>
+	<img src="showday?date={$Think.get.date}&id=9">
 </body>
 </html>

@@ -36,7 +36,8 @@ class DanmuModel extends Model
         if ($method == 'admin') {
             $res = $Danmu->order('id desc')->where($map)->select();
         } else {
-            $res = $Danmu->where($map)->field('time', true)->order('id desc')->select();
+            $res = $Danmu->field('time', true)->order('id desc')->select();
+
         }
         return $res;
     }

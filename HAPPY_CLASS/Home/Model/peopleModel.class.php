@@ -18,5 +18,11 @@ class peopleModel extends Model {
 			return 1;
 		else return 0;
 	}
+	function get_ip_id($ip)
+	{
+		$result['ip']=$ip;
+		$data=$this->where($result)->select();
+		return $data[0]['class_id'];
+	}
 }
  ?>

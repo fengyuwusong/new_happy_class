@@ -185,7 +185,7 @@ $(document).ready(function () {
     });
     //柱形图左边
     var xyheight=$(".xy").height();
-    var windowH=$(window).height()*0.6;
+    var windowH=$(window).height()*0.8;
     // alert(windowH);
     $("#hide").height(windowH);
     // var wid=$(".class").width();

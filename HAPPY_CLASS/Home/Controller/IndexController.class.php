@@ -61,7 +61,7 @@ class IndexController extends Controller
         $people = new \Home\Model\peopleModel();
         $class = new \Home\Model\ClassModel();
         $id=I('post.class_id');
-        cookie('vote','no',3600);
+        // cookie('vote','no',3600);
         // $result['c']= cookie('vote');
         $value = cookie('vote');
         if($people->checkip(get_client_ip())==1||$value=='yes'){
@@ -87,5 +87,17 @@ class IndexController extends Controller
         $Verify = new \Think\Verify($config);
         // $Verify->codeSet = '0123456789';
         $Verify->entry(1);
+    }
+    public function index_moblie(){
+        $people = new \Home\Model\peopleModel();
+        $value = cookie('vote');
+        if($people->checkip(get_client_ip())==1||$value=='yes'){
+            $id=$people->get_ip_id(get_client_ip());
+        }
+        else{
+            $id=-1;
+        }
+        $this->assign('id',$id);
+        $this->show();
     }
 }

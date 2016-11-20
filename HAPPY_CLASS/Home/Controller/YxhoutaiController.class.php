@@ -2,61 +2,107 @@
 namespace Home\Controller;
 use Think\Controller;
 class YxhoutaiController extends Controller {
-    public function demo(){
-    	$this->show();
-    }
+    //埋点函数，点击一次按钮则触发一次事件
     function up_button()
     {
     	$id=intval(I('post.id'));
     	$button= new \Home\Model\buttonModel();
     	$button->add($id);
     }
-    function sentdata()
+    function timedata()
     {
-    	$this->show();
+    	$this->display();
     }
     public function alldata(){
         $this->show();
     }
     public function showdata(){
-		// $time=I('post.da');
-    	$back = new \Home\Model\backModel();
-    	$time=strtotime(I('get.date'));
-    	$class_id=intval(I('get.id'));
-    	$data1 = $back->returndata($time,$class_id);
-    	// print_r($data1);
-
-
-
-    	vendor("jpgraph-4.jpgraph.jpgraph");
-    	vendor("jpgraph-4.jpgraph.jpgraph_line");
-    	//必须要引用的文件  
-		//包含曲线图文件
-		// $data1 = array(523,634,371,278,685,587,490,256,398,545,367,577); //第一条曲线的数组  
-		// $data1 = array(1,3,4,21,32,55,77,99,111,123,234,235,236);
-		$graph = new \Graph(600,400);//设置图片宽高  
-		$graph->SetScale("textlin");
-		$graph->SetShadow();     
-		$graph->img->SetMargin(60,30,30,70); //设置图像边距  
-		$graph->graph_theme = null; //设置主题为null，否则value->Show(); 无效  
-		$lineplot1=new \LinePlot($data1); //创建设置两条曲线对象  
-		$lineplot1->value->SetColor("red");  
-		$lineplot1->value->Show();
-		$graph->Add($lineplot1);  //将曲线放置到图像上  
-		   
-		$graph->title->Set("投票曲线表");   //设置图像标题  
-		$graph->xaxis->title->Set("时间（小时）"); //设置坐标轴名称  
-		$graph->yaxis->title->Set("票数");  
-		$graph->title->SetMargin(10); //距离图片顶部magin 
-		$graph->xaxis->title->SetMargin(10);//横线下的标注距离横线margin
-		$graph->yaxis->title->SetMargin(10);//垂线下的标注距离垂线margin
-		   
-		$graph->title->SetFont(FF_SIMSUN,FS_BOLD); //设置字体  
-		$graph->yaxis->title->SetFont(FF_SIMSUN,FS_BOLD);  
-		$graph->xaxis->title->SetFont(FF_SIMSUN,FS_BOLD);   
-		// $graph->xaxis->SetTickLabels($gDateLocale->GetShortMonth());//以月份显示x轴  
-		  
-		$graph->Stroke();  //输出图像 
+        $back = new \Home\Model\backModel();
+        $time=strtotime(I('get.date'));
+        $class_id=intval(I('get.id'));
+        $data = $back->returndata($time,$class_id);
+        $data1=$data['num'];
+        $companys=$data['time'];
+        $datay=$data1; //纵坐标数据 
+        $datax=$companys; //横坐标数据 
+        vendor("jpgraph-4.jpgraph.jpgraph");
+        vendor("jpgraph-4.jpgraph.jpgraph_bar");
+        // Create the graph. These two calls are always required 
+        $graph = new \Graph(800,600); //图像高宽 
+        $graph->SetScale('textint',0,100); 
+        $graph->xaxis->SetTickLabels($datax); 
+        $graph->xaxis->SetFont(FF_VERDANA,FS_NORMAL,10); 
+        $graph->xaxis->SetLabelAngle(30); 
+        $graph->yaxis->scale->SetGrace(20); 
+        $graph->xaxis->scale->SetGrace(20); 
+        // Add a drop shadow 
+        $graph->SetShadow(); 
+        // Adjust the margin a bit to make more room for titles 
+        $graph->img->SetMargin(40,30,20,40); 
+        $graph->graph_theme = null;
+        // Create a bar pot 
+        $bplot = new \BarPlot($datay); 
+        // Adjust fill color 
+        $bplot->SetFillColor('blue'); 
+        $bplot->value->Show(true); 
+        $bplot->value->SetFont(FF_SIMSUN,FS_BOLD,10); 
+        $bplot->value->SetAngle(45); 
+        $bplot->value->SetFormat('%d');
+        // $bplot->value->show(true);
+        $graph->Add($bplot); 
+        // Setup the titles 
+        $graph->title->Set('投票曲线表'); 
+        $graph->xaxis->title->Set('5分钟一个节点'); 
+        $graph->yaxis->title->Set('增长的票数'); 
+        $graph->xaxis->title->SetFont(FF_SIMSUN,FS_BOLD); 
+        $graph->yaxis->title->SetFont(FF_SIMSUN,FS_BOLD); 
+        $graph->title->SetFont(FF_SIMSUN,FS_BOLD); 
+        // Display the graph 
+        $graph->Stroke();  
+    }
+    public function showday(){
+        $back = new \Home\Model\backModel();
+        $time=strtotime(I('get.date'));
+        $class_id=intval(I('get.id'));
+        $data = $back->returnday($time,$class_id);
+        $data1=$data['num'];
+        $companys=$data['time'];
+        $datay=$data1; //纵坐标数据 
+        $datax=$companys; //横坐标数据 
+        vendor("jpgraph-4.jpgraph.jpgraph");
+        vendor("jpgraph-4.jpgraph.jpgraph_bar");
+        // Create the graph. These two calls are always required 
+        $graph = new \Graph(1200,600); //图像高宽 
+        $graph->SetScale('textint',0,1000); 
+        $graph->xaxis->SetTickLabels($datax); 
+        $graph->xaxis->SetFont(FF_VERDANA,FS_NORMAL,10); 
+        $graph->xaxis->SetLabelAngle(30); 
+        $graph->yaxis->scale->SetGrace(20); 
+        $graph->xaxis->scale->SetGrace(20); 
+        // Add a drop shadow 
+        $graph->SetShadow(); 
+        // Adjust the margin a bit to make more room for titles 
+        $graph->img->SetMargin(40,30,20,40); 
+        $graph->graph_theme = null;
+        // Create a bar pot 
+        $bplot = new \BarPlot($datay); 
+        // Adjust fill color 
+        $bplot->SetFillColor('blue'); 
+        $bplot->value->Show(true); 
+        $bplot->value->SetFont(FF_SIMSUN,FS_BOLD,10); 
+        $bplot->value->SetAngle(45); 
+        $bplot->value->SetFormat('%d');
+        // $bplot->value->show(true);
+        $graph->Add($bplot); 
+        // Setup the titles 
+        $graph->title->Set('投票曲线表'); 
+        $graph->xaxis->title->Set('一小时一个节点'); 
+        $graph->yaxis->title->Set('增长的票数'); 
+        $graph->xaxis->title->SetFont(FF_SIMSUN,FS_BOLD); 
+        $graph->yaxis->title->SetFont(FF_SIMSUN,FS_BOLD); 
+        $graph->title->SetFont(FF_SIMSUN,FS_BOLD); 
+        // Display the graph 
+        $graph->Stroke();  
     }
     function changedata(){
         $this->show();
@@ -84,8 +130,18 @@ class YxhoutaiController extends Controller {
         $data=$class->showsource($id);
         $this->ajaxReturn($data);
     }
-    public function test1(){
-        $a='-100';
-        echo intval($a);
+    //初始化back表
+    public function iniback(){
+        $back = new \Home\Model\backModel();
+        if($back->ini()==1){
+            echo "初始化完成";
+        }
+    }
+    function demo(){
+        $day=date("Y-m-d",time());
+        $this->assign('day',$day);
+        $time=date("Y-m-d H:i",time()-3600);
+        $this->assign('time',$time);
+        $this->display();
     }
 }
