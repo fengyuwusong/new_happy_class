@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>快乐班级</title>
-    <link rel="stylesheet" type="text/css" href="/happy_class/Public/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/happy_class/Public/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/happy_class/Public/css/jquery-ui-1.10.4.custom.min.css">
-    <link rel="stylesheet" type="text/css" href="/happy_class/Public/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/new_happy_class/Public/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/new_happy_class/Public/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/new_happy_class/Public/css/jquery-ui-1.10.4.custom.min.css">
+    <link rel="stylesheet" type="text/css" href="/new_happy_class/Public/css/index.css">
 </head>
 <body>
 <div id="bg">
     <!-- banner charts 排行榜 -->
     <div class="banner">
         <div class="header">
-            <img src="/happy_class/Public/image/xklogo.png" alt="">
+            <img src="/new_happy_class/Public/image/xklogo.png" alt="">
         </div>
         <div id="lists">
             <div id="banner">
@@ -44,7 +44,7 @@
                 <div class="third"></div>
                 <div class="four"></div>
             </div>
-            <img src="/happy_class/Public/image/vote.jpg" alt="">
+            <img src="/new_happy_class/Public/image/vote.jpg" alt="">
             <div class="voted_classes">
             <!-- 排行榜下的班级显示 -->
             <!-- <div class="voted_class class1"><div class="column"><div class="red"></div>
@@ -183,8 +183,7 @@
                 </div>
             </div>
         </div>
-        <!-- 开发人员 end-->
-        <!-- 页脚 -->
+     <a href="javascript:;" id="btn" title="回到顶部"></a>
     </div>
     <!-- 开发人员 end-->
     <!-- 页脚 -->
@@ -199,17 +198,17 @@
     var getClassUrl = "<?php echo U('Home/Index/getClass');?>";	//获取班级信息url
     var voteUrl="<?php echo U('Home/Index/vote');?>";//投票url
     var iframe="<?php echo U('Home/index/danmuPlayer');?>";
-    var pub = "/happy_class/Public";//指向public路径
+    var pub = "/new_happy_class/Public";//指向public路径
     var url_check_verify="<?php echo U('Home/Index/check_verify');?>"//验证码
 </script>
-<script type="text/javascript" src="/happy_class/Public/js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="/happy_class/Public/js/bootstrap.min.js"></script>
-<script src="/happy_class/Public/js/jquery-ui-1.10.4.custom.min.js"></script>
-<script src="/happy_class/Public/js/jquery.shCircleLoader.js"></script>
-<script src="/happy_class/Public/js/sco.tooltip.js"></script>
-<script src="/happy_class/Public/js/colpick.js"></script>
-<script src="/happy_class/Public/js/jquery.danmu.js"></script>
-<script src="/happy_class/Public/js/main.js"></script>
-<script type="text/javascript" src="/happy_class/Public/js/index.js"></script>
+<script type="text/javascript" src="/new_happy_class/Public/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/new_happy_class/Public/js/bootstrap.min.js"></script>
+<script src="/new_happy_class/Public/js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="/new_happy_class/Public/js/jquery.shCircleLoader.js"></script>
+<script src="/new_happy_class/Public/js/sco.tooltip.js"></script>
+<script src="/new_happy_class/Public/js/colpick.js"></script>
+<script src="/new_happy_class/Public/js/jquery.danmu.js"></script>
+<script src="/new_happy_class/Public/js/main.js"></script>
+<script type="text/javascript" src="/new_happy_class/Public/js/index.js"></script>
 </html>
 <!--DanmuPlayer (//github.com/chiruom/danmuplayer/) - Licensed under the MIT license-->

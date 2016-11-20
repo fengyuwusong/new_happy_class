@@ -397,15 +397,6 @@ body{
 	text-align: center;
 	display: inline-block;
 }
-/*.p2{
-	border-radius: 50%;
-	width: 130px;
-	height: 130px;
-	background-color: rgb( 212, 63, 27 );
-	float: right;
-	z-index: 5px;
-}*/
-
 /*footer*/
 .footer{
 	width: 100%;
@@ -489,6 +480,19 @@ body{
 .pw{
 	height: 31px;
     margin-bottom: 20px;
+}
+/*回到顶部*/
+#btn{
+	width: 40px;
+	height: 40px;
+	position: fixed;
+	margin-left:95%;
+	bottom: 30px;
+	display: none;
+	background:url(../image/top_bg.png) no-repeat left top;
+}
+#btn:hover{
+	background: url(../image/top_bg.png) no-repeat left -40px;
 }
 /*遮罩层*/
 .mask {       
