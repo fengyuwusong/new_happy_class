@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>快乐班级</title>
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/js/index1.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/index.css">
+    <script type="text/javascript" src="__PUBLIC__/danmu/dist/js/danmuplayer.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/danmu/dist/css/danmuplayer.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/jquery-ui-1.10.4.custom.min.css">
+    <script type="text/javascript" src="__PUBLIC__/js/jquery-ui-1.10.4.custom.min.js"></script>
+</head>
+<body>
+<!-- background: url(../image/beijing2.jpg) no-repeat; -->
+<div id="header">
+    <!-- 轮播图 -->
+    <div class="banner_bg">
+        <div id="banner">
+            <a class="img img1" target="_blank"></a>
+            <a class="img img2" href="http://www.xingkong.us" target="_blank"></a>
+            <a class="img img3" target="_blank"></a>
+        </div>
+        <div id="arrow">
+            <span class="arrow_left" id="prev"></span>
+            <span class="arrow_right" id="next"></span>
+        </div>
+    </div>
+</div>
+<!-- 介绍 -->
+<div id="preface">
+    <h1>快乐班级比赛简介</h1>
+</div>
+<!-- 班级 -->
+<div id="classes">
+    <div id="dialog-form" title="" style="display:none;">
+    </div>
+</div>
+<!-- 底部
+<!-- <div id="footer"> -->
+<!-- 开发人员 -->
+<!-- <div id="developers">
+    <div class="developer">
+        <div class="people"></div>
+    </div>
+</div> -->
+<!-- </div> -->
+<script type="text/javascript">
+    var getClassUrl = "{:U('Home/index/getClass')}";
+    var img = $('.banner_bg a');
+    var index = 0;//索引
+    /*$("#danmup").DanmuPlayer({
+     src:"http://oga3de3p0.bkt.clouddn.com/lh9KDdhuc_hLI1N9UN4_cfdKqpDX",       //视频源
+     width:800,            //视频宽度
+     height:380,            //视频高度
+     // speed:20000,            //弹幕速度，这是数值指的是视频穿过672像素所需要的毫秒数
+     // sumTime:65535,              //弹幕视频的总时间，可不填
+     // danmuList:{},               //弹幕列表
+     // defaultColor:"#ffffff",   //弹幕的默认字体颜色
+     // fontSizeSmall:16,           //小弹幕的字号
+     // FontSizeBig:24,             //大弹幕的字号
+     // opacity:"1",            //弹幕默认透明度
+     // topBottonDanmuTime:6000,  //底部及顶部弹幕存留的时间
+     // urlToGetDanmu:"",     //用来接收弹幕信息的url  (稍后介绍)
+     // urlToPostDanmu:"" ,   //用来存储弹幕信息的url  (稍后介绍)
+     // maxCountInScreen: 40,   //屏幕上的最大的显示弹幕数目,弹幕数量过多时,优先加载最新的。
+     // maxCountPerSec: 10      //每分秒秒钟最多的弹幕数目,弹幕数量过多时,优先加载最新的。
+     });*/
+</script>
+</body>
+</html>

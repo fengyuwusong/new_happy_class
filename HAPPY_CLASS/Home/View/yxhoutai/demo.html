@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo</title>
+	<style type="text/css">
+		.vote{
+			width: 100px;
+			height: 30px;
+			text-align: center;
+			line-height: 30px;
+		}
+	</style>
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$('input:button').click(function(){
+				$mess=$('#mess');
+				$mess.css('display','none');
+				$.ajax({ 
+		            type: "POST",     
+		            url: "__URL__/return1",
+		            data: {
+		                id: $('#content').val(), 
+		            },
+		            dataType: "json",
+		            success: function(json) {
+		                //$("#lol").html(data.success);
+		                if(json.status==1){
+								$mess.slideDown(300,function(){
+									$mess.css('display','block');  
+								}).html(json.message);  
+							}else{
+								$mess.slideDown(300,function(){
+									$mess.css('display','block');  
+								}).html(json.message);  
+						}    
+		            },
+		            error: function(jqXHR){     
+		               alert("发生错误：" + jqXHR.status);  
+		            },     
+		        });
+
+				
+		})
+		$('#check').click(function(){
+				$.ajax({ 
+		            type: "POST",     
+		            url: "__URL__/up_button",
+		            data: {
+		                id: '1', 
+		            },
+		            dataType: "text",
+		            success: function(json) {
+		                
+		            },
+		            error: function(jqXHR){     
+		               alert("发生错误：" + jqXHR.status);  
+		            },     
+		        });
+				$mess=$('#mess');
+				$mess.css('display','none');
+				$.ajax({ 
+		            type: "POST",     
+		            url: "__URL__/check_verify",
+		            data: {
+		                verify: $('#verify').val(), 
+		            },
+		            dataType: "text",
+		            success: function(json) {
+		                //$("#lol").html(data.success);
+		                $mess.html(json);
+		    //             if(json.status==1){
+						// 		$mess.slideDown(300,function(){
+						// 			$mess.css('display','block');  
+						// 		}).html(json.message);  
+						// 	}else{
+						// 		$mess.slideDown(300,function(){
+						// 			$mess.css('display','block');  
+						// 		}).html(json.message);  
+						// }    
+		            },
+		            error: function(jqXHR){     
+		               alert("发生错误：" + jqXHR.status);  
+		            },     
+		        });
+
+				
+		})
+		$('#ii').click(function(){
+			$('#ii').attr("src","verify?a="+Math.random());
+		})    
+	})
+	</script>
+</head>
+<body>
+	<form>
+		<select id="content" name="selse" >
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select>
+		<input type="button" name="name1" class="vote" value="确定投票">
+		<img id='ii' src="verify">
+	</form>
+	<input type="text" id='verify' maxlength="4">
+	<input type="button" id='check' class="vote" value="检测验证码">
+	<div id="mess"></div>
+</body>
+</html>

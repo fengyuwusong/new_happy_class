@@ -1,0 +1,4 @@
+/Runtime/
+*.log
+/Uploads/
+ThinkPHP/

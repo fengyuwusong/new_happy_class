@@ -1,0 +1,432 @@
+.page1 .top
+{
+    position: absolute;
+    top: 5px;
+    left: 50%;
+
+    width: 284px;
+    height: 246px;
+    margin-left: -142px;
+}
+.page1 .top .left
+{
+    position: absolute;
+    top: 5px;
+    left: 0;
+
+    width: 219px;
+    height: 194px;
+
+    background: url(../images/left.png) no-repeat;
+    background-size: 219px 194px;
+}
+.page1 .top .right
+{
+    position: absolute;
+    top: 52px;
+    right: 1px;
+
+    width: 212px;
+    height: 198px;
+
+    background: url(../images/right.png) no-repeat;
+    background-size: 212px 198px;
+}
+
+.page1 .top .title
+{
+    position: absolute;
+    left: 50%;
+
+    width: 106px;
+    height: 26px;
+    margin-top: 110px;
+    margin-left: -50px;
+
+    background: url(../images/title.png) no-repeat;
+    background-size: 106px 26px;
+}
+
+.bottom
+{
+    position: absolute;
+
+    width: 100%;
+    height: 48px;
+}
+.page1 .bottom
+{
+    top: 77.5%;
+}
+.page2 .bottom
+{
+    bottom: 5%;
+}
+.bottom .logo
+{
+    position: absolute;
+    left: 0;
+
+    width: 160px;
+    height: 100%;
+}
+.xingkong
+{
+    position: absolute;
+    left: 6%;
+
+    width: 85px;
+    height: 47px;
+
+    background: url(../images/xingkong.png) no-repeat;
+    background-size: 85px 47px;
+}
+.xiaohui
+{
+    position: absolute;
+    right: 6%;
+
+    width: 48px;
+    height: 48px;
+
+    background: url(../images/xiaohui.png) no-repeat;
+    background-size: 48px 48px;
+}
+.fonts
+{
+    position: absolute;
+    right: 0;
+
+    width: 160px;
+    height: 100%;
+}
+
+
+.font-1
+{
+    position: absolute;
+    right: 6%;
+
+    width: 77px;
+    height: 12px;
+
+    background: url(../images/font1.png) no-repeat;
+    background-size: 77px 12px;
+}
+.font-2
+{
+    position: absolute;
+    top: 20px;
+    right: 6%;
+
+    width: 103px;
+    height: 7px;
+
+    background: url(../images/font2.png) no-repeat;
+    background-size: 103px 7px;
+}
+.font-3
+{
+    position: absolute;
+    right: 6%;
+    bottom: 0;
+
+    width: 111px;
+    height: 12px;
+
+    background: url(../images/font3.png) no-repeat;
+    background-size: 111px 12px;
+}
+@media(max-height: 480px)
+{
+    #Bar
+    {
+        top: -2%;
+    }
+    #Bar .skillbar
+    {
+        margin-bottom: 7px;
+    }
+    .page2 #title2
+    {
+        top: 8%;
+    }
+}
+
+@media(min-height: 484px)
+{
+    #Bar
+    {
+        top: 1%;
+    }
+    #Bar .skillbar
+    {
+        margin-bottom: 9px;
+    }
+}
+@media(min-height: 600px)
+{
+    .up
+    {
+        top: 30px;
+    }
+    #Bar
+    {
+        top: 8%;
+    }
+    #Bar .skillbar
+    {
+        margin-bottom: 12px;
+    }
+}
+@media(min-width: 360px)
+{
+    .up
+    {
+        top: 40px;
+    }
+    #left
+    {
+        top: 6%;
+        left: 4%;
+    }
+    #right
+    {
+        right: 4%;
+        bottom: 6%;
+    }
+}
+@media(min-width: 400px)
+{
+    .up
+    {
+        top: 50px;
+    }
+}
+
+.page2 .title2
+{
+    position: absolute;
+    top: 12%;
+    left: 50%;
+
+    width: 142px;
+    height: 34px;
+    margin-left: -71px;
+
+    background: url(../images/title2.png) no-repeat;
+    background-size: 142px 34px;
+}
+.page2 .kuangkuang
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 251px;
+    height: 310px;
+    margin-top: -155px;
+    margin-left: -126px;
+
+    background: url(../images/kuangkuang.png) no-repeat;
+    background-size: 251px 310px;
+}
+.page2 .kuangkuang .shipin
+{
+    position: absolute;
+    top: 5.5%;
+    left: 50%;
+
+    width: 163px;
+    height: 78px;
+    margin-left: -82px;
+
+    background: url(../images/shipin.png) no-repeat;
+    background-size: 163px 78px;
+}
+.page2 .kuangkuang .xianchang
+{
+    position: absolute;
+    top: 34%;
+    left: 50%;
+
+    width: 176px;
+    height: 190px;
+    margin-left: -88px;
+
+    background: url(../images/xianchang.png) no-repeat;
+    background-size: 176px 190px;
+}
+
+.skillbar-bar1
+{
+    background: #e67e22;
+}
+.skillbar-bar2
+{
+    background: #3498db;
+}
+.skillbar-bar3
+{
+    background: #f1a9a0;
+}
+.skillbar-bar4
+{
+    background: #5a68a5;
+}
+.skillbar-bar5
+{
+    background: #fde3a7;
+}
+.skillbar-bar6
+{
+    background: #2ecc71;
+}
+.skillbar-bar7
+{
+    background: #4288d0;
+}
+.skillbar-bar8
+{
+    background: #bf55ec;
+}
+.skillbar-bar9
+{
+    background: #a2ded0;
+}
+.skillbar-bar0
+{
+    background: #19b5fe;
+}
+
+.page3 .bar .disable
+{
+    background: #dedfe0;
+}
+
+.btn
+{
+    width: 100%;
+    height: 30px;
+
+    border-radius: 3px;
+    background: #eee;
+
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.share
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 260px;
+    height: 50px;
+    margin-top: -25px;
+    margin-left: -130px;
+}
+.share input
+{
+    line-height: 50px;
+
+    border: none;
+    border-radius: 4px;
+}
+.share .weixin
+{
+    font-size: 14px;
+    font-weight: 600;
+
+    position: absolute;
+    left: 0;
+
+    width: 120px;
+    height: 50px;
+
+    text-indent: 32px;
+
+    background: url(../images/weixn.png) 7px 10px no-repeat;
+    background-color: #fff;
+    background-size: 30px;
+}
+.share .pengyouquan
+{
+    font-size: 14px;
+    font-weight: 600;
+
+    position: absolute;
+    right: 0;
+
+    width: 120px;
+    height: 50px;
+
+    text-indent: 32px;
+
+    background: url(../images/pengyouquan.png) 7px 10px no-repeat;
+    background-color: #fff;
+    background-size: 30px;
+}
+.shareTo
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background: url(../images/share.png) no-repeat top center;
+    background-color: rgba(0,0,0,.5);
+}
+.footer
+{
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 168px;
+}
+.footer h3
+{
+    font-family: '微软雅黑';
+    font-weight: lighter;
+
+    margin: 0;
+    padding: 0;
+
+    text-align: left;
+    text-indent: 8%;
+
+    color: #fff;
+}
+.footer ul
+{
+    width: 300px;
+    margin: 0 auto;
+    padding: 0;
+}
+.footer ul li
+{
+    float: left;
+
+    width: 50px;
+    height: 50px;
+    margin: 8px 12px;
+
+    list-style-type: none;
+
+    border-radius: 50%;
+    /*background: #f22613;*/
+    background: #e6e8eb;
+}
+.footer ul li span
+{
+    font-family: '微软雅黑';
+    line-height: 50px;
+
+    width: 50px;
+    height: 50px;
+
+    color: #000;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo</title>
+	<script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+	<script type="text/javascript">
+	// $(function(){
+	// 	$('#show').click(function(){
+	// 		$mess=$('#mess');
+	// 		$mess.css('display','none');
+	// 		$.ajax({ 
+	//             type: "POST",     
+	//             url: "__URL__/getnum",
+	//             data: {
+	//                 id: $('#content').val(), 
+	//             },
+	//             dataType: "text",
+	//             success: function(json) {
+	// 				$mess.slideDown(300,function(){
+	// 					$mess.css('display','block');  
+	// 				}).html("现在票数为："+json);  
+	// 			},
+	//             error: function(jqXHR){     
+	//                alert("发生错误：" + jqXHR.status);  
+	//             },     
+	//         });		
+	// 	})
+	// 	$('#down').click(function(){
+	// 		if(confirm('确定进行减'+$('#num').val()+'票？')){
+	// 			$mess=$('#mess');
+	// 			$mess.css('display','none');
+	// 			$.ajax({ 
+	// 	            type: "POST",     
+	// 	            url: "__URL__/change",
+	// 	            data: {
+	// 	                id: $('#content').val(),
+	// 	                num:$('#num').val(), 
+	// 	            },
+	// 	            dataType: "json",
+	// 	            success: function(json) {
+	// 					$mess.slideDown(300,function(){
+	// 						$mess.css('display','block');  
+	// 					}).html(json);  
+	// 				},
+	// 	            error: function(jqXHR){     
+	// 	               alert("发生错误：" + jqXHR.status);  
+	// 	            },     
+	// 	        });	
+	// 	     }	
+	// 	})
+	// 	$('#source').click(function(){
+	// 		$mess=$('#mess');
+	// 		$mess.css('display','none');
+	// 		$.ajax({ 
+	//             type: "POST",     
+	//             url: "__URL__/showsource",
+	//             data: {
+	//                 id: $('#content').val(), 
+	//             },
+	//             dataType: "text",
+	//             success: function(json) {
+	// 				$mess.slideDown(300,function(){
+	// 					$mess.css('display','block');  
+	// 				}).html("原始票数为："+json);  
+	// 			},
+	//             error: function(jqXHR){     
+	//                alert("发生错误：" + jqXHR.status);  
+	//             },     
+	//         });		
+	// 	}) 
+	// })
+	</script>
+</head>
+<body>
+	<img src="showdata?date=2016-11-16&id=2">
+	<br>
+	<img src="showdata?date=2016-11-16&id=3">
+	<br>
+	<img src="showdata?date=2016-11-16&id=4">
+</body>
+</html>

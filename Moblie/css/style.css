@@ -1,0 +1,100 @@
+.Bar
+{
+    font-family: 'Ubuntu', sans-serif;
+
+    position: absolute;
+    top: 8%;
+    left: 50%;
+
+    overflow: hidden;
+
+    width: 260px;
+    margin-left: -130px;
+}
+.Bar h3
+{
+    color: #fff;
+}
+.skillbar
+{
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+    height: 30px;
+    margin-bottom: 10px;
+
+    -webkit-transition: .4s linear;
+       -moz-transition: .4s linear;
+        -ms-transition: .4s linear;
+         -o-transition: .4s linear;
+            transition: .4s linear;
+    -webkit-transition-property: width, background-color;
+       -moz-transition-property: width, background-color;
+        -ms-transition-property: width, background-color;
+         -o-transition-property: width, background-color;
+            transition-property: width, background-color;
+
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+    background: #eee;
+}
+@media(min-height: 480px)
+{
+    .skillbar
+    {
+        margin-bottom: 7px;
+    }
+    #Bar h3
+    {
+        margin-bottom: 16px;
+    }
+}
+.skillbar-bar span
+{
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 30px;
+
+    display: block;
+
+    width: 64px;
+    height: 30px;
+    padding: 0 4px;
+
+    color: #000;
+    -webkit-border-top-left-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+            border-top-left-radius: 3px;
+    -webkit-border-bottom-left-radius: 3px;
+    -moz-border-radius-bottomleft: 3px;
+            border-bottom-left-radius: 3px;
+    /*background: rgba(0, 0, 0, .1);*/
+}
+
+.skillbar-bar
+{
+    width: 0;
+    height: 30px;
+
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+}
+
+.skill-bar-percent
+{
+    font-size: 11px;
+    line-height: 30px;
+
+    position: absolute;
+    top: 0;
+    right: 10px;
+
+    height: 30px;
+
+    color: #fff;
+    color: rgba(0, 0, 0, .4);
+}

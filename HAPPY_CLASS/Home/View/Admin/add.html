@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- 可选的Bootstrap主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<style>
+    input[type="file"] {
+        display: inline-block;
+    }
+
+    label {
+        padding: 10px;
+    }
+</style>
+<body>
+<center>
+    <h2>添加班级</h2>
+    <h4>图片只能是jpg格式，视频必须为mp4格式</h4>
+    <form enctype="multipart/form-data" method="post" id="form">
+        <label>
+            <span>班级名称：</span><input type="text" name="name" id="name"/>
+        </label><br/>
+        <label>
+            <span>班级信息：</span><textarea name="info" id="info"></textarea>
+        </label><br/>
+        <label>
+            <span>封面：</span><input type="file" name="cover" id="cover">
+        </label><br/>
+        <label>
+            <span>宣传图：</span><input type="file" name="image" id="image">
+        </label><br/>
+        <label>
+            <span>视频：</span><input type="file" name="video" id="video">
+        </label><br/>
+        <input type="submit" value="提交"/>
+    </form>
+    <div class="container">
+        <div class="progress">
+            <div id="progress" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+                 style="width:0;">
+                <span class="sr-only" id="span_bar"></span>
+            </div>
+        </div>
+    </div>
+</center>
+<script>
+    var i = 0;
+    //异步上传方法
+    function upload(file, url) {
+        var fd = new FormData;
+        fd.append('file', file);
+        fd.append('name', $("#name").val());
+        xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        //回调函数，当异步执行完了之后执行该方法
+        xhr.onload = function (e) {
+            i++;
+            if (i == 3) {
+                i=0;
+                addClass($('#name').val(), $('#info').val());
+            }
+        };
+        xhr.upload.onprogress = function (e) {
+            $('#progress').css('width', 0 + "%");
+            if (e.lengthComputable) {
+                var p = parseInt(e.loaded * 100 / e.total);
+                $('#progress').css('width', p + "%");
+                $('#span_bar').html(p + '%');
+            }
+        };
+        xhr.send(fd);
+    }
+
+    //添加班级方法
+    function addClass(name, info) {
+        $.ajax({
+            type: "POST",
+            url: "{:U('Home/Admin/addClass')}",
+            data: {
+                name: name,
+                info: info,
+            },
+            dataType: "json",
+            success: function (res) {
+                alert("添加成功！");
+                window.location.reload();
+            }
+        });
+    }
+
+
+    //点击事件
+    $("#form").on('submit', function (e) {
+        e.preventDefault();
+        //上传文件
+        var mainCover = $("#cover")[0].files[0];
+        var videoCover = $("#image")[0].files[0];
+        var video = $("#video")[0].files[0];
+        upload(mainCover, "{:U('Home/Admin/uploadMainCover')}");
+        upload(videoCover, "{:U('Home/Admin/uploadVideoCover')}");
+        upload(video, "{:U('Home/Admin/uploadVideo')}");
+    });
+</script>
+</body>
+</html>

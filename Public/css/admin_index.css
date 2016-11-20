@@ -1,0 +1,19 @@
+#header{
+    display: block;
+}
+#key_word{
+    width: 200px;
+    display: inline-block;
+    float: right;
+    margin-right: 80px;
+    margin-top: -55px;
+}
+#del{
+    cursor: pointer;
+}
+#filter{
+    width: 60px;
+    display: inline-block;
+    float: right;
+    margin-top: -55px;
+}
